@@ -24,7 +24,7 @@ def check_arexx_sensors_temp(item, params, info):
         return check_temperature(savefloat(value),params, "arexx_temp_%s" % sensorid)
     
 def check_arexx_sensors_humidity(item, params, info):
-    value,description,sensorid=check_arexx_sensors(item, params, info,"Humidity")
+    value,description,sensorid=check_arexx_sensors(item, params, info,"Relative Humidity")
     if not value == None:
         return check_humidity(savefloat(value),params)
     
@@ -42,7 +42,7 @@ check_info["arexx_sensors.temp"] = {
 check_info["arexx_sensors.humidity"] = {
     "service_description"     : "Humidity %s",
     "check_function"          : check_arexx_sensors_humidity,
-    "inventory_function"      : lambda info: inventory_arexx_sensors(info,'Humidity'),
+    "inventory_function"      : lambda info: inventory_arexx_sensors(info,'Relative Humidity'),
     'has_perfdata'            : True,
     "group"                   : "humidity",
     "includes"                : [ "humidity.include" ],
