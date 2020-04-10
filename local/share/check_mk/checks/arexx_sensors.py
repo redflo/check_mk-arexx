@@ -5,7 +5,7 @@ import time
 
 def inventory_arexx_sensors(info, req_sensor_type):
     localtime = int(time.time())
-    for sensorid,value,stime,signallevel,sensor_type,name in info:
+    for sensorid,value,stime,signallevel,sensor_type,name,realsensorid in info:
         if sensor_type in req_sensor_type and abs(localtime-int(stime)) < 900:
             yield "%s %s" % (sensorid,name), None
 
